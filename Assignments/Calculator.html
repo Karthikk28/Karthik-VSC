@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Calculator</title>
+  <style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: rgb(252, 251, 251);
+    }
+    .calculator{
+        background: rgb(220, 208, 208);
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        height: 300px;
+    }
+    input, select, button{
+        width: 100px;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 15px;
+    }
+    #result{
+        margin-top: 10px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <h2>JavaScript Calculator</h2>
+    <input type="number" id="number1" placeholder="Enter first number">
+    <input type="number" id="number2" placeholder="Enter second number">
+
+    <select id="operation">
+      <option value="+">Add (+)</option>
+      <option value="-">Subtract (−)</option>
+      <option value="*">Multiply (×)</option>
+      <option value="/">Divide (÷)</option>
+    </select>
+
+    <button id="calculate">Calculate</button>
+    <div id="result">Result: </div>
+  </div>
+
+  <script>
+    // Get elements
+    const number1 = document.getElementById('number1');
+    const number2 = document.getElementById('number2');
+    const operation = document.getElementById('operation');
+    const calculateButton = document.getElementById('calculate');
+    const resultDiv = document.getElementById('result');
+
+    // Event listener for Calculate button
+      calculateButton.addEventListener('click', function () {
+      const num1 = parseFloat(number1.value);
+      const num2 = parseFloat(number2.value);
+      const op = operation.value;
+      let result;
+      switch (op) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num1 / num2;
+          break;
+      }
+
+      resultDiv.textContent = "Result: " + result;
+    });
+  </script>
+
+</body>
+</html>
